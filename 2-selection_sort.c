@@ -17,6 +17,7 @@ void selection_sort(int *array, size_t size)
 
 	if (array == NULL || size < 2)
 		return;
+
 	for (i = 0; i < size - 1; i++)
 	{
 		minIdx = i;
@@ -28,9 +29,12 @@ void selection_sort(int *array, size_t size)
 			}
 		}
 		/*swap*/
-		tmp = array[i];
-		array[i] = array[minIdx];
-		array[minIdx] = tmp;
-		print_array(array, size);
+		if (minIdx != i)
+		{
+			tmp = array[i];
+			array[i] = array[minIdx];
+			array[minIdx] = tmp;
+			print_array(array, size);
+		}
 	}
 }
